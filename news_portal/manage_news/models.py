@@ -18,7 +18,7 @@ class News(models.Model):
     is_urgent = models.BooleanField(default=False, verbose_name='Срочно')
     category = models.CharField(max_length=30, verbose_name='Категория', choices=CATEGORIES)
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
-    tag = models.ManyToManyField('Tag', verbose_name='Теги')
+    tags = models.ManyToManyField('Tag', verbose_name='Теги')
 
     def get_tags(self):
         tags_li = self.tags.all()
